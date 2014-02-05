@@ -1,0 +1,23 @@
+CROSS_HOST="x86_64-w64-mingw32"
+inherit cross
+
+NAME="mingw64-x86_64-libfreehand0.0"
+VERSION=0.0.0
+RELEASE=1
+CATEGORY="Devel"
+SUMMARY="Adobe FreeHand format import library for Win64 toolchain"
+DESCRIPTION="Libfreehand is library providing ability to interpret and import
+Adobe FreeHand documents into various applications."
+HOMEPAGE="http://www.freedesktop.org/wiki/Software/libfreehand/"
+SRC_URI="http://dev-www.libreoffice.org/src/libfreehand-${VERSION}.tar.xz"
+SRC_DIR="libfreehand-${VERSION}"
+PATCH_URI="0.0.0-Werror-effc++.patch"
+
+CYGCONF_ARGS="--without-docs"
+
+src_install() {
+	cd ${B}
+	cyginstall bin_PROGRAMS=
+}
+
+KEEP_LA_FILES="none"
